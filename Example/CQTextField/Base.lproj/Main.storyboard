@@ -25,19 +25,53 @@
                                     <constraint firstAttribute="height" constant="50" id="UBM-9Y-hOE"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fng-nA-jtG" customClass="CQCutLineTextField" customModule="CQTextField">
+                                <rect key="frame" x="8" y="86" width="304" height="50"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Hzh-1D-N4A"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pfL-2s-svj" customClass="CQVCodeTextField" customModule="CQTextField">
+                                <rect key="frame" x="8" y="144" width="304" height="50"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="sEc-8H-e08"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ak-68-e0U" customClass="CQPWDTextField" customModule="CQTextField">
+                                <rect key="frame" x="8" y="202" width="304" height="50"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="9Y6-AP-5iL"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="2Ak-68-e0U" secondAttribute="trailing" constant="8" id="576-vA-oeF"/>
+                            <constraint firstItem="2Ak-68-e0U" firstAttribute="top" secondItem="pfL-2s-svj" secondAttribute="bottom" constant="8" id="A6W-0B-UzO"/>
+                            <constraint firstItem="pfL-2s-svj" firstAttribute="top" secondItem="fng-nA-jtG" secondAttribute="bottom" constant="8" id="D1r-3P-lOr"/>
                             <constraint firstItem="t8A-Rk-7hU" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="8" id="Ev5-Dd-mJZ"/>
+                            <constraint firstItem="pfL-2s-svj" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="8" id="FtL-Dx-wHZ"/>
                             <constraint firstAttribute="trailing" secondItem="t8A-Rk-7hU" secondAttribute="trailing" constant="8" id="ObC-sB-Pi4"/>
                             <constraint firstItem="t8A-Rk-7hU" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="Qiv-PD-sKK"/>
+                            <constraint firstItem="fng-nA-jtG" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="8" id="Rjy-yV-4Zg"/>
+                            <constraint firstItem="2Ak-68-e0U" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="8" id="lYC-5A-zpS"/>
+                            <constraint firstItem="fng-nA-jtG" firstAttribute="top" secondItem="t8A-Rk-7hU" secondAttribute="bottom" constant="8" id="s2C-eM-pLu"/>
+                            <constraint firstAttribute="trailing" secondItem="fng-nA-jtG" secondAttribute="trailing" constant="8" id="ujT-yn-rZq"/>
+                            <constraint firstAttribute="trailing" secondItem="pfL-2s-svj" secondAttribute="trailing" constant="8" id="yJ1-6H-dBB"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="199" y="335"/>
         </scene>
     </scenes>
 </document>

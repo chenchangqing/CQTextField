@@ -8,6 +8,18 @@
 
 import UIKit
 
+func scaleImage(image: UIImage, toScale scaleSize: CGFloat) -> UIImage {
+    
+    UIGraphicsBeginImageContext(CGSizeMake(image.size.width * scaleSize, image.size.height * scaleSize))
+    image.drawInRect(CGRectMake(0, 0, image.size.width * scaleSize, image.size.height * scaleSize))
+    let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    
+    return scaledImage
+}
+
+let CQTextFieldFrameworkSrcName = "Frameworks/CQTextField.framework/CQTextField.bundle/"
+
 @IBDesignable public class CQTextField: UIView {
     
     @IBInspectable dynamic public var iconLength: CGFloat = 16 {
@@ -20,38 +32,60 @@ import UIKit
             textField.placeholder = placeholder
         }
     }
-    @IBInspectable dynamic public var iconImage: UIImage? = UIImage(named: "Frameworks/CQTextField.framework/CQTextField.bundle/mobile_32px.png") {
+    @IBInspectable dynamic public var iconImage: UIImage? = UIImage(named: "\(CQTextFieldFrameworkSrcName)mobile_32px.png") {
         didSet {
-            iconLayer.contents = iconImage
+            iconLayer.contents = iconImage?.CGImage
         }
     }
     
-    private var iconLayer = CALayer()
-    private var textField = UITextField()
+    internal let iconLayer = CALayer()
+    internal let textField = UITextField()
+    
+    // 边界
+    @IBInspectable dynamic public var borderColor: UIColor = UIColor.grayColor() {
+        didSet {
+            self.layer.borderColor = borderColor.CGColor
+        }
+    }
+    internal let borderWidth: CGFloat = 1
+    internal let cornerRadius : CGFloat = 4
+    
+    // 文本框
+    internal let paddingIconAndText: CGFloat = 8
+    internal let textFieldHeight: CGFloat = 21
+    internal let textFieldMargin: CGFloat = 4
+    internal let textFieldFont: CGFloat = 14
 
     override public func drawRect(rect: CGRect) {
 
         // 边界
-        self.layer.borderColor  = UIColor.grayColor().CGColor
-        self.layer.borderWidth  = 1
-        self.layer.cornerRadius = 5
+        self.layer.borderColor  = borderColor.CGColor
+        self.layer.borderWidth  = borderWidth
+        self.layer.cornerRadius = cornerRadius
         
         // 图片
-        let minLength   = min(self.bounds.width, self.bounds.height)
-        let iconMargin  = (minLength - iconLength)/2
+        let minLength       = min(self.bounds.width, self.bounds.height)
+        let iconMargin      = (minLength - iconLength)/2
+        let iconLayerOrigin = CGPoint(x: iconMargin, y: iconMargin)
+        let iconLayerSize   = CGSize(width: iconLength, height: iconLength)
         
-        iconLayer.frame     = CGRect(origin: CGPoint(x: iconMargin, y: iconMargin), size: CGSize(width: iconLength, height: iconLength))
-        iconLayer.contents  = iconImage?.CGImage
-        //iconLayer.backgroundColor = UIColor.grayColor().CGColor
+        iconLayer.frame             = CGRect(origin: iconLayerOrigin, size: iconLayerSize)
+        iconLayer.contents          = iconImage?.CGImage
+        //iconLayer.backgroundColor   = UIColor.grayColor().CGColor
         
         self.layer.addSublayer(iconLayer)
         
         // 文本框
-        let marginBetweenIconAndText: CGFloat = 4
-        textField.frame = CGRectInset(rect, iconLength + iconMargin + marginBetweenIconAndText, marginBetweenIconAndText)
-        textField.frame = CGRect(origin: textField.frame.origin, size: CGSize(width: textField.bounds.width + iconLength + marginBetweenIconAndText, height: textField.bounds.height))
-        //textField.backgroundColor = UIColor.magentaColor()
-        textField.placeholder = placeholder
+        let textFieldOriginX    = CGRectGetMaxX(iconLayer.frame) + paddingIconAndText
+        let textFieldOrigin     = CGPoint(x:  textFieldOriginX, y: textFieldMargin)
+        let textFieldSizeWidth  = rect.width - textFieldOrigin.x - iconMargin
+        let textFieldSize       = CGSize(width: textFieldSizeWidth, height: textFieldHeight)
+        
+        textField.frame             = CGRect(origin: textFieldOrigin, size: textFieldSize)
+        textField.center.y          = rect.height/2
+        textField.placeholder       = placeholder
+        textField.font = UIFont.systemFontOfSize(textFieldFont)
+        //textField.backgroundColor   = UIColor.magentaColor()
         
         self.addSubview(textField)
     }
