@@ -1,0 +1,14 @@
+PODS:
+  - CQTextField (0.1.0)
+
+DEPENDENCIES:
+  - CQTextField (from `../`)
+
+EXTERNAL SOURCES:
+  CQTextField:
+    :path: ../
+
+SPEC CHECKSUMS:
+  CQTextField: c7a601dd57f5b985fe36c1809bdb712f5ff0f7d5
+
+COCOAPODS: 0.39.0
