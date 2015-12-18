@@ -47,6 +47,8 @@ let CQTextFieldFrameworkSrcName = "Frameworks/CQTextField.framework/CQTextField.
             self.layer.borderColor = borderColor.CGColor
         }
     }
+    @IBInspectable dynamic public var focusBorderColor: UIColor = UIColor.magentaColor()
+    
     internal let borderWidth: CGFloat = 1
     internal let cornerRadius : CGFloat = 4
     
@@ -89,6 +91,48 @@ let CQTextFieldFrameworkSrcName = "Frameworks/CQTextField.framework/CQTextField.
         //textField.backgroundColor   = UIColor.magentaColor()
         
         self.addSubview(textField)
+    }
+    
+    // MARK: - UITextField Observing
+    
+    override public func willMoveToSuperview(newSuperview: UIView!) {
+        if newSuperview != nil {
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: "textFieldDidEndEditing", name:UITextFieldTextDidEndEditingNotification, object: self.textField)
+            
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: "textFieldDidBeginEditing", name:UITextFieldTextDidBeginEditingNotification, object: self.textField)
+        } else {
+            NSNotificationCenter.defaultCenter().removeObserver(self)
+        }
+    }
+    
+    /**
+     The textfield has started an editing session.
+     */
+    public func textFieldDidBeginEditing() {
+        animateViewsForTextEntry()
+    }
+    
+    /**
+     The textfield has ended an editing session.
+     */
+    public func textFieldDidEndEditing() {
+        animateViewsForTextDisplay()
+    }
+    
+    /**
+     Creates all the animations that are used to leave the textfield in the "entering text" state.
+     */
+    public func animateViewsForTextEntry() {
+        
+        self.layer.borderColor  = focusBorderColor.CGColor
+    }
+    
+    /**
+     Creates all the animations that are used to leave the textfield in the "display input text" state.
+     */
+    public func animateViewsForTextDisplay() {
+        
+        self.layer.borderColor  = borderColor.CGColor
     }
 
 }

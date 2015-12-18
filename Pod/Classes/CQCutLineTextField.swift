@@ -20,13 +20,6 @@ import UIKit
             setNeedsDisplay()
         }
     }
-    
-    // 分割线
-    @IBInspectable dynamic public var cutOffLineColor: UIColor = UIColor.grayColor() {
-        didSet {
-            self.cutOffLineLayer.borderColor = cutOffLineColor.CGColor
-        }
-    }
 
     public override func drawRect(rect: CGRect) {
 
@@ -57,11 +50,29 @@ import UIKit
         cutOffLineLayer.path = cutOffLine.CGPath
         cutOffLineLayer.frame = rect
         cutOffLineLayer.masksToBounds    = true
-        cutOffLineLayer.strokeColor      = cutOffLineColor.CGColor
+        cutOffLineLayer.strokeColor      = borderColor.CGColor
         cutOffLineLayer.lineWidth        = borderWidth
         cutOffLineLayer.strokeStart      = 0
         cutOffLineLayer.strokeEnd        = 1
         self.layer.addSublayer(cutOffLineLayer)
+    }
+    
+    /**
+     Creates all the animations that are used to leave the textfield in the "entering text" state.
+     */
+    public override func animateViewsForTextEntry() {
+        
+        super.animateViewsForTextEntry()
+        cutOffLineLayer.strokeColor  = focusBorderColor.CGColor
+    }
+    
+    /**
+     Creates all the animations that are used to leave the textfield in the "display input text" state.
+     */
+    public override func animateViewsForTextDisplay() {
+        
+        super.animateViewsForTextDisplay()
+        cutOffLineLayer.strokeColor  = borderColor.CGColor
     }
 
 }
