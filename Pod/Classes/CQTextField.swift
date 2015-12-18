@@ -39,7 +39,7 @@ let CQTextFieldFrameworkSrcName = "Frameworks/CQTextField.framework/CQTextField.
     }
     
     internal let iconLayer = CALayer()
-    internal let textField = UITextField()
+    public let textField = UITextField()
     
     // 边界
     @IBInspectable dynamic public var borderColor: UIColor = UIColor.grayColor() {
