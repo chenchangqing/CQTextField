@@ -35,22 +35,14 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pfL-2s-svj" customClass="CQCutLineTextField" customModule="CQTextField">
                                 <rect key="frame" x="8" y="144" width="304" height="50"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jTd-fV-PVd" customClass="SwiftCountdownButton" customModule="CQTextField">
-                                        <rect key="frame" x="250" y="8" width="46" height="30"/>
-                                        <animations/>
-                                        <state key="normal" title="Button"/>
-                                        <state key="disabled" title="second秒"/>
-                                        <connections>
-                                            <action selector="tapCountdownClick:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="cuA-RA-hNh"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="sEc-8H-e08"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="请输入短信验证码"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ak-68-e0U" customClass="CQPasswordTextField" customModule="CQTextField">
                                 <rect key="frame" x="8" y="202" width="304" height="50"/>
@@ -60,10 +52,16 @@
                                     <constraint firstAttribute="height" constant="50" id="9Y6-AP-5iL"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wry-kc-woA" customClass="SwiftCountdownButton" customModule="CQTextField">
-                                <rect key="frame" x="99" y="329" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wry-kc-woA" customClass="SwiftCountdownButton" customModule="CQTextField">
+                                <rect key="frame" x="232" y="144" width="80" height="50"/>
                                 <animations/>
-                                <state key="normal" title="Button"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="ivW-cz-Xdy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="点击获取">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <state key="disabled" title="second秒"/>
                                 <connections>
                                     <action selector="tapCountdownClick:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="YYu-1z-kDJ"/>
@@ -73,11 +71,14 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="2Ak-68-e0U" firstAttribute="top" secondItem="wry-kc-woA" secondAttribute="bottom" constant="8" id="09v-zY-evA"/>
+                            <constraint firstAttribute="trailing" secondItem="wry-kc-woA" secondAttribute="trailing" constant="8" id="3gq-2C-Q1L"/>
                             <constraint firstAttribute="trailing" secondItem="2Ak-68-e0U" secondAttribute="trailing" constant="8" id="576-vA-oeF"/>
                             <constraint firstItem="2Ak-68-e0U" firstAttribute="top" secondItem="pfL-2s-svj" secondAttribute="bottom" constant="8" id="A6W-0B-UzO"/>
                             <constraint firstItem="pfL-2s-svj" firstAttribute="top" secondItem="fng-nA-jtG" secondAttribute="bottom" constant="8" id="D1r-3P-lOr"/>
                             <constraint firstItem="t8A-Rk-7hU" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="8" id="Ev5-Dd-mJZ"/>
                             <constraint firstItem="pfL-2s-svj" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="8" id="FtL-Dx-wHZ"/>
+                            <constraint firstItem="wry-kc-woA" firstAttribute="top" secondItem="fng-nA-jtG" secondAttribute="bottom" constant="8" id="Mfw-Ub-yhJ"/>
                             <constraint firstAttribute="trailing" secondItem="t8A-Rk-7hU" secondAttribute="trailing" constant="8" id="ObC-sB-Pi4"/>
                             <constraint firstItem="t8A-Rk-7hU" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="Qiv-PD-sKK"/>
                             <constraint firstItem="fng-nA-jtG" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="8" id="Rjy-yV-4Zg"/>
