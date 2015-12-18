@@ -22,19 +22,19 @@ let CQTextFieldFrameworkSrcName = "Frameworks/CQTextField.framework/CQTextField.
 
 @IBDesignable public class CQTextField: UIView {
     
-    @IBInspectable dynamic public var iconLength: CGFloat = 16 {
+    @IBInspectable dynamic public var iconWidth: CGFloat = 16 {
         didSet {
             setNeedsDisplay()
-        }
-    }
-    @IBInspectable dynamic public var placeholder: String = "请输入注册/登录手机号" {
-        didSet {
-            textField.placeholder = placeholder
         }
     }
     @IBInspectable dynamic public var iconImage: UIImage? = UIImage(named: "\(CQTextFieldFrameworkSrcName)mobile_32px.png") {
         didSet {
             iconLayer.contents = iconImage?.CGImage
+        }
+    }
+    @IBInspectable dynamic public var placeholder: String = "请输入注册/登录手机号" {
+        didSet {
+            textField.placeholder = placeholder
         }
     }
     
@@ -65,9 +65,9 @@ let CQTextFieldFrameworkSrcName = "Frameworks/CQTextField.framework/CQTextField.
         
         // 图片
         let minLength       = min(self.bounds.width, self.bounds.height)
-        let iconMargin      = (minLength - iconLength)/2
+        let iconMargin      = (minLength - iconWidth)/2
         let iconLayerOrigin = CGPoint(x: iconMargin, y: iconMargin)
-        let iconLayerSize   = CGSize(width: iconLength, height: iconLength)
+        let iconLayerSize   = CGSize(width: iconWidth, height: iconWidth)
         
         iconLayer.frame             = CGRect(origin: iconLayerOrigin, size: iconLayerSize)
         iconLayer.contents          = iconImage?.CGImage
@@ -85,6 +85,7 @@ let CQTextFieldFrameworkSrcName = "Frameworks/CQTextField.framework/CQTextField.
         textField.center.y          = rect.height/2
         textField.placeholder       = placeholder
         textField.font = UIFont.systemFontOfSize(textFieldFont)
+        textField.clearButtonMode   = .WhileEditing
         //textField.backgroundColor   = UIColor.magentaColor()
         
         self.addSubview(textField)

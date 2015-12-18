@@ -1,5 +1,5 @@
 //
-//  CQVCodeTextField.swift
+//  CQSmsCodeTextField.swift
 //  Pods
 //
 //  Created by green on 15/12/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class CQVCodeTextField: CQCutLineTextField {
+@IBDesignable public class CQSmsCodeTextField: CQCutLineTextField {
     
     // 发送短信按钮
     private let sendSMSButton =  UIButton()

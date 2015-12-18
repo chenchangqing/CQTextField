@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class CQCutLineTextField: CQTextField {
+@IBDesignable public class CQCutLineTextField: CQTextField {
     
     internal let rightView = UIView()
     internal let cutOffLineLayer = CAShapeLayer()

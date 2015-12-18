@@ -1,5 +1,5 @@
 //
-//  CQPWDTextField.swift
+//  CQPasswordTextField.swift
 //  Pods
 //
 //  Created by green on 15/12/17.
@@ -8,10 +8,17 @@
 
 import UIKit
 
-public class CQPWDTextField: CQCutLineTextField {
+@IBDesignable public class CQPasswordTextField: CQCutLineTextField {
     
     // 密码可见按钮
     private let eyeButton = UIButton()
+    
+    // 密码可见按钮选中颜色
+    @IBInspectable dynamic public var openEyeImageColor:UIColor = UIColor.magentaColor() {
+        didSet {
+            updateEyeBtnSelectedImageColor()
+        }
+    }
     
     public override func drawRect(rect: CGRect) {
         super.drawRect(rect)
@@ -21,14 +28,43 @@ public class CQPWDTextField: CQCutLineTextField {
         placeholder = "请设置登录密码"
         
         // 密码可见按钮
-        var closeEyeImage   = UIImage(named: "\(CQTextFieldFrameworkSrcName)close_eye_50px.png")!
-        var openEyeImage    = UIImage(named: "\(CQTextFieldFrameworkSrcName)open_eye_50px.png")!
-        closeEyeImage   = scaleImage(closeEyeImage, toScale: 0.5)
-        openEyeImage    = scaleImage(openEyeImage, toScale: 0.5)
-        eyeButton.setImage(closeEyeImage, forState: .Normal)
-        eyeButton.setImage(openEyeImage, forState: .Selected)
-        eyeButton.frame = rightView.bounds
-        rightView.addSubview(eyeButton)
+        if let closeEyeImage=UIImage(named: "\(CQTextFieldFrameworkSrcName)close_eye_50px.png") {
+            
+            let tempImage       = scaleImage(closeEyeImage, toScale: 0.5)
+            eyeButton.frame     = rightView.bounds
+            eyeButton.setImage(tempImage, forState: .Normal)
+            updateEyeBtnSelectedImageColor()
+            rightView.addSubview(eyeButton)
+        }
+        
+        eyeButton.addTarget(self, action: Selector("eyeButtonClicked:"), forControlEvents: .TouchUpInside)
+        
+        // 文本框
+        textField.secureTextEntry = true
+    }
+    
+    func eyeButtonClicked(sender: UIButton) {
+        
+        sender.selected = !sender.selected
+        
+        if sender.selected {
+            
+            textField.secureTextEntry = false
+        } else {
+            
+            textField.secureTextEntry = true
+        }
+    }
+    
+    func updateEyeBtnSelectedImageColor() {
+        
+        if let openEyeImage = UIImage(named: "\(CQTextFieldFrameworkSrcName)open_eye_50px.png") {
+            
+            eyeButton.tintColor = openEyeImageColor
+            let tempImage       = scaleImage(openEyeImage, toScale: 0.5).imageWithRenderingMode(.AlwaysTemplate)
+            eyeButton.setImage(tempImage, forState: .Selected)
+        }
+        
     }
 
 }
