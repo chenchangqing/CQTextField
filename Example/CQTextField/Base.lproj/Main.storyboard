@@ -18,42 +18,42 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t8A-Rk-7hU" customClass="CQTextField" customModule="CQTextField">
-                                <rect key="frame" x="8" y="28" width="304" height="50"/>
+                                <rect key="frame" x="8" y="28" width="304" height="44"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="UBM-9Y-hOE"/>
+                                    <constraint firstAttribute="height" constant="44" id="UBM-9Y-hOE"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fng-nA-jtG" customClass="CQCutLineTextField" customModule="CQTextField">
-                                <rect key="frame" x="8" y="86" width="304" height="50"/>
+                                <rect key="frame" x="8" y="80" width="304" height="44"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Hzh-1D-N4A"/>
+                                    <constraint firstAttribute="height" constant="44" id="Hzh-1D-N4A"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pfL-2s-svj" customClass="CQValidCodeTextField" customModule="CQTextField">
-                                <rect key="frame" x="8" y="144" width="304" height="50"/>
+                                <rect key="frame" x="8" y="132" width="304" height="44"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="sEc-8H-e08"/>
+                                    <constraint firstAttribute="height" constant="44" id="sEc-8H-e08"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="请输入短信验证码"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ak-68-e0U" customClass="CQPasswordTextField" customModule="CQTextField">
-                                <rect key="frame" x="8" y="202" width="304" height="50"/>
+                                <rect key="frame" x="8" y="184" width="304" height="44"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="9Y6-AP-5iL"/>
+                                    <constraint firstAttribute="height" constant="44" id="9Y6-AP-5iL"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wry-kc-woA" customClass="SwiftCountdownButton" customModule="CQTextField">
-                                <rect key="frame" x="232" y="144" width="80" height="50"/>
+                                <rect key="frame" x="232" y="132" width="80" height="44"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="ivW-cz-Xdy"/>
@@ -66,6 +66,14 @@
                                 <connections>
                                     <action selector="tapCountdownClick:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="YYu-1z-kDJ"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r5Z-Hg-reF" customClass="CQButton" customModule="CQTextField">
+                                <rect key="frame" x="8" y="236" width="304" height="44"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="5rl-77-CZt"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
                             </button>
                         </subviews>
                         <animations/>
@@ -83,7 +91,10 @@
                             <constraint firstItem="t8A-Rk-7hU" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="Qiv-PD-sKK"/>
                             <constraint firstItem="fng-nA-jtG" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="8" id="Rjy-yV-4Zg"/>
                             <constraint firstItem="2Ak-68-e0U" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="8" id="lYC-5A-zpS"/>
+                            <constraint firstItem="r5Z-Hg-reF" firstAttribute="top" secondItem="2Ak-68-e0U" secondAttribute="bottom" constant="8" id="pHN-Lf-FDi"/>
                             <constraint firstItem="fng-nA-jtG" firstAttribute="top" secondItem="t8A-Rk-7hU" secondAttribute="bottom" constant="8" id="s2C-eM-pLu"/>
+                            <constraint firstAttribute="trailing" secondItem="r5Z-Hg-reF" secondAttribute="trailing" constant="8" id="tNU-ke-Ijt"/>
+                            <constraint firstItem="r5Z-Hg-reF" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="8" id="tx3-Cb-HhH"/>
                             <constraint firstAttribute="trailing" secondItem="fng-nA-jtG" secondAttribute="trailing" constant="8" id="ujT-yn-rZq"/>
                             <constraint firstAttribute="trailing" secondItem="pfL-2s-svj" secondAttribute="trailing" constant="8" id="yJ1-6H-dBB"/>
                         </constraints>
