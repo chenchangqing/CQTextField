@@ -33,7 +33,7 @@
                                     <constraint firstAttribute="height" constant="50" id="Hzh-1D-N4A"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pfL-2s-svj" customClass="CQCutLineTextField" customModule="CQTextField">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pfL-2s-svj" customClass="CQValidCodeTextField" customModule="CQTextField">
                                 <rect key="frame" x="8" y="144" width="304" height="50"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
