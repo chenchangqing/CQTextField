@@ -33,8 +33,19 @@
                                     <constraint firstAttribute="height" constant="50" id="Hzh-1D-N4A"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pfL-2s-svj" customClass="CQSmsCodeTextField" customModule="CQTextField">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pfL-2s-svj" customClass="CQCutLineTextField" customModule="CQTextField">
                                 <rect key="frame" x="8" y="144" width="304" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jTd-fV-PVd" customClass="SwiftCountdownButton" customModule="CQTextField">
+                                        <rect key="frame" x="250" y="8" width="46" height="30"/>
+                                        <animations/>
+                                        <state key="normal" title="Button"/>
+                                        <state key="disabled" title="second秒"/>
+                                        <connections>
+                                            <action selector="tapCountdownClick:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="cuA-RA-hNh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -49,6 +60,15 @@
                                     <constraint firstAttribute="height" constant="50" id="9Y6-AP-5iL"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wry-kc-woA" customClass="SwiftCountdownButton" customModule="CQTextField">
+                                <rect key="frame" x="99" y="329" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Button"/>
+                                <state key="disabled" title="second秒"/>
+                                <connections>
+                                    <action selector="tapCountdownClick:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="YYu-1z-kDJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -68,6 +88,9 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="countdownButton" destination="wry-kc-woA" id="LKk-AL-84e"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
