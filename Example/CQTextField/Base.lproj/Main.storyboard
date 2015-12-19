@@ -59,6 +59,8 @@
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="请设置登录密码"/>
                                     <userDefinedRuntimeAttribute type="image" keyPath="iconImage" value="Password_64px"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="openEyeImage" value="open_eye_50px"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="closeEyeImage" value="close_eye_50px"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wry-kc-woA" customClass="SwiftCountdownButton" customModule="CQTextField">
@@ -117,7 +119,9 @@
     </scenes>
     <resources>
         <image name="Password_64px" width="64" height="64"/>
+        <image name="close_eye_50px" width="50" height="50"/>
         <image name="email_minimal_64px" width="64" height="64"/>
         <image name="mobile_32px" width="32" height="32"/>
+        <image name="open_eye_50px" width="50" height="50"/>
     </resources>
 </document>

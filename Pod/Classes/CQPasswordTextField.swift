@@ -72,7 +72,7 @@ import UIKit
         if let closeEyeImage = closeEyeImage {
             
             let tempImage       = scaleImage(closeEyeImage, toScale: 0.5)
-            eyeButton.setImage(tempImage, forState: .Selected)
+            eyeButton.setImage(tempImage, forState: .Normal)
         }
     }
 
