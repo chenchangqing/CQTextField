@@ -27,12 +27,12 @@ let CQTextFieldFrameworkSrcName = "Frameworks/CQTextField.framework/CQTextField.
             setNeedsDisplay()
         }
     }
-    @IBInspectable dynamic public var iconImage: UIImage? = UIImage(named: "\(CQTextFieldFrameworkSrcName)mobile_32px.png") {
+    @IBInspectable dynamic public var iconImage: UIImage? {
         didSet {
             iconLayer.contents = iconImage?.CGImage
         }
     }
-    @IBInspectable dynamic public var placeholder: String = "请输入注册/登录手机号" {
+    @IBInspectable dynamic public var placeholder: String = "" {
         didSet {
             textField.placeholder = placeholder
         }

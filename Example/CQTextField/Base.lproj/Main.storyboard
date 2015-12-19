@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -19,42 +19,50 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t8A-Rk-7hU" customClass="CQTextField" customModule="CQTextField">
                                 <rect key="frame" x="8" y="28" width="304" height="44"/>
-                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="UBM-9Y-hOE"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="请输入注册/登录手机号"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="iconImage" value="mobile_32px"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fng-nA-jtG" customClass="CQCutLineTextField" customModule="CQTextField">
                                 <rect key="frame" x="8" y="80" width="304" height="44"/>
-                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Hzh-1D-N4A"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="请输入登录密码"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="iconImage" value="Password_64px"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pfL-2s-svj" customClass="CQValidCodeTextField" customModule="CQTextField">
                                 <rect key="frame" x="8" y="132" width="304" height="44"/>
-                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="sEc-8H-e08"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="请输入短信验证码"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="iconImage" value="email_minimal_64px"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ak-68-e0U" customClass="CQPasswordTextField" customModule="CQTextField">
                                 <rect key="frame" x="8" y="184" width="304" height="44"/>
-                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="9Y6-AP-5iL"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="请设置登录密码"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="iconImage" value="Password_64px"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wry-kc-woA" customClass="SwiftCountdownButton" customModule="CQTextField">
                                 <rect key="frame" x="232" y="132" width="80" height="44"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="ivW-cz-Xdy"/>
                                 </constraints>
@@ -69,14 +77,12 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r5Z-Hg-reF" customClass="CQButton" customModule="CQTextField">
                                 <rect key="frame" x="8" y="236" width="304" height="44"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="5rl-77-CZt"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                             </button>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="2Ak-68-e0U" firstAttribute="top" secondItem="wry-kc-woA" secondAttribute="bottom" constant="8" id="09v-zY-evA"/>
@@ -109,4 +115,9 @@
             <point key="canvasLocation" x="199" y="335"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Password_64px" width="64" height="64"/>
+        <image name="email_minimal_64px" width="64" height="64"/>
+        <image name="mobile_32px" width="32" height="32"/>
+    </resources>
 </document>

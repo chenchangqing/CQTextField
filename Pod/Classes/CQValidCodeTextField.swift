@@ -13,7 +13,6 @@ import UIKit
     override public func drawRect(rect: CGRect) {
         super.drawRect(rect)
         
-        iconImage = UIImage(named: "\(CQTextFieldFrameworkSrcName)email_minimal_64px.png")
     }
 
 }
