@@ -6,6 +6,40 @@
     </dependencies>
     <scenes>
         <!--View Controller-->
+        <scene sceneID="Cu1-Fm-bBc">
+            <objects>
+                <viewController id="13d-Bs-vQF" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wOH-dT-8On"/>
+                        <viewControllerLayoutGuide type="bottom" id="dsw-br-AxM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="l3D-ge-1Ga">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="44k-Of-dSp">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <connections>
+                                    <segue destination="vXZ-lx-hvc" kind="embed" id="ZuG-sq-Ta2"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="44k-Of-dSp" firstAttribute="top" secondItem="wOH-dT-8On" secondAttribute="bottom" id="0S0-4U-oiP"/>
+                            <constraint firstItem="dsw-br-AxM" firstAttribute="top" secondItem="44k-Of-dSp" secondAttribute="bottom" id="KO5-mo-DQm"/>
+                            <constraint firstAttribute="trailing" secondItem="44k-Of-dSp" secondAttribute="trailing" id="V2W-0Z-SAi"/>
+                            <constraint firstItem="44k-Of-dSp" firstAttribute="leading" secondItem="l3D-ge-1Ga" secondAttribute="leading" id="ZT7-fF-OWG"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="TOh-w8-xRo"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pMX-4J-aCP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="621" y="335"/>
+        </scene>
+        <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="CQTextField_Example" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,8 +51,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t8A-Rk-7hU" customClass="CQTextField" customModule="CQTextField">
-                                <rect key="frame" x="8" y="28" width="304" height="44"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t8A-Rk-7hU" customClass="CQTextField" customModule="CQTextField">
+                                <rect key="frame" x="8" y="72" width="304" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="UBM-9Y-hOE"/>
@@ -28,8 +62,8 @@
                                     <userDefinedRuntimeAttribute type="image" keyPath="iconImage" value="mobile_32px"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fng-nA-jtG" customClass="CQCutLineTextField" customModule="CQTextField">
-                                <rect key="frame" x="8" y="80" width="304" height="44"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fng-nA-jtG" customClass="CQCutLineTextField" customModule="CQTextField">
+                                <rect key="frame" x="8" y="124" width="304" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Hzh-1D-N4A"/>
@@ -39,8 +73,8 @@
                                     <userDefinedRuntimeAttribute type="image" keyPath="iconImage" value="Password_64px"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pfL-2s-svj" customClass="CQValidCodeTextField" customModule="CQTextField">
-                                <rect key="frame" x="8" y="132" width="304" height="44"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pfL-2s-svj" customClass="CQValidCodeTextField" customModule="CQTextField">
+                                <rect key="frame" x="8" y="176" width="304" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="sEc-8H-e08"/>
@@ -50,8 +84,8 @@
                                     <userDefinedRuntimeAttribute type="image" keyPath="iconImage" value="email_minimal_64px"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Ak-68-e0U" customClass="CQPasswordTextField" customModule="CQTextField">
-                                <rect key="frame" x="8" y="184" width="304" height="44"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ak-68-e0U" customClass="CQPasswordTextField" customModule="CQTextField">
+                                <rect key="frame" x="8" y="228" width="304" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="9Y6-AP-5iL"/>
@@ -63,8 +97,8 @@
                                     <userDefinedRuntimeAttribute type="image" keyPath="closeEyeImage" value="close_eye_50px"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wry-kc-woA" customClass="SwiftCountdownButton" customModule="CQTextField">
-                                <rect key="frame" x="232" y="132" width="80" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wry-kc-woA" customClass="SwiftCountdownButton" customModule="CQTextField">
+                                <rect key="frame" x="232" y="176" width="80" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="ivW-cz-Xdy"/>
                                 </constraints>
@@ -77,8 +111,8 @@
                                     <action selector="tapCountdownClick:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="YYu-1z-kDJ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r5Z-Hg-reF" customClass="CQButton" customModule="CQTextField">
-                                <rect key="frame" x="8" y="236" width="304" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r5Z-Hg-reF" customClass="CQButton" customModule="CQTextField">
+                                <rect key="frame" x="8" y="280" width="304" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="5rl-77-CZt"/>
                                 </constraints>
@@ -130,7 +164,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="T7V-jj-Xpn"/>
+                        <segue destination="13d-Bs-vQF" kind="relationship" relationship="rootViewController" id="awW-kN-Jbi"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cfe-0l-26y" userLabel="First Responder" sceneMemberID="firstResponder"/>
