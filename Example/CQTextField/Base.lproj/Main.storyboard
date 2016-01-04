@@ -110,6 +110,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="countdownButton" destination="wry-kc-woA" id="LKk-AL-84e"/>
+                        <outlet property="textField" destination="t8A-Rk-7hU" id="S4T-8q-1xi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

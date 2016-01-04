@@ -12,9 +12,13 @@ import CQTextField
 class ViewController: UIViewController {
     
     @IBOutlet weak var countdownButton: SwiftCountdownButton!
+    @IBOutlet weak var textField: CQTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        textField.textField.becomeFirstResponder()
+        textField.textField.text = "13917470873"
     }
     
     @IBAction func tapCountdownClick(sender: AnyObject) {
