@@ -8,10 +8,10 @@
 
 import UIKit
 
-@IBDesignable public class CQValidCodeTextField: CQCutLineTextField {
+@IBDesignable open class CQValidCodeTextField: CQCutLineTextField {
 
-    override public func drawRect(rect: CGRect) {
-        super.drawRect(rect)
+    override open func draw(_ rect: CGRect) {
+        super.draw(rect)
         
     }
 

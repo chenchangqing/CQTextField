@@ -8,12 +8,12 @@
 
 import UIKit
 
-public class SwiftCountdownButton: UIButton {
+open class SwiftCountdownButton: UIButton {
 
     // MARK: Properties
     
-    public var maxSecond = 60
-    public var countdown = false {
+    open var maxSecond = 60
+    open var countdown = false {
         didSet {
             if oldValue != countdown {
                 countdown ? startCountdown() : stopCountdown()
@@ -21,18 +21,18 @@ public class SwiftCountdownButton: UIButton {
         }
     }
     
-    private var second = 0
-    private var timer: NSTimer?
+    fileprivate var second = 0
+    fileprivate var timer: Timer?
     
-    private var timeLabel: UILabel!
-    private var normalText: String!
-    private var normalTextColor: UIColor!
-    private var disabledText: String!
-    private var disabledTextColor: UIColor!
+    fileprivate var timeLabel: UILabel!
+    fileprivate var normalText: String!
+    fileprivate var normalTextColor: UIColor!
+    fileprivate var disabledText: String!
+    fileprivate var disabledTextColor: UIColor!
     
     // MARK: Life Cycle
     
-    override public func awakeFromNib() {
+    override open func awakeFromNib() {
         super.awakeFromNib()
         setupLabel()
     }
@@ -43,15 +43,15 @@ public class SwiftCountdownButton: UIButton {
     
     // MARK: Setups
     
-    private func setupLabel() {
-        normalText = titleForState(.Normal)!
-        disabledText = titleForState(.Disabled)!
-        normalTextColor = titleColorForState(.Normal)!
-        disabledTextColor = titleColorForState(.Disabled)!
-        setTitle("", forState: .Normal)
-        setTitle("", forState: .Disabled)
+    fileprivate func setupLabel() {
+        normalText = title(for: UIControlState())!
+        disabledText = title(for: .disabled)!
+        normalTextColor = titleColor(for: UIControlState())!
+        disabledTextColor = titleColor(for: .disabled)!
+        setTitle("", for: UIControlState())
+        setTitle("", for: .disabled)
         timeLabel = UILabel(frame: bounds)
-        timeLabel.textAlignment = .Center
+        timeLabel.textAlignment = .center
         timeLabel.font = titleLabel?.font
         timeLabel.textColor = normalTextColor
         timeLabel.text = normalText
@@ -60,7 +60,7 @@ public class SwiftCountdownButton: UIButton {
     
     // MARK: Private
     
-    private func startCountdown() {
+    fileprivate func startCountdown() {
         second = maxSecond
         updateDisabled()
         
@@ -69,29 +69,30 @@ public class SwiftCountdownButton: UIButton {
             timer = nil
         }
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "updateCountdown", userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(SwiftCountdownButton.updateCountdown), userInfo: nil, repeats: true)
     }
     
-    private func stopCountdown() {
+    fileprivate func stopCountdown() {
         timer?.invalidate()
         timer = nil
         updateNormal()
     }
     
-    private func updateNormal() {
-        enabled = true
+    fileprivate func updateNormal() {
+        isEnabled = true
         timeLabel.textColor = normalTextColor
         timeLabel.text = normalText
     }
     
-    private func updateDisabled() {
-        enabled = false
+    fileprivate func updateDisabled() {
+        isEnabled = false
         timeLabel.textColor = disabledTextColor
-        timeLabel.text = disabledText.stringByReplacingOccurrencesOfString("second", withString: "\(second)", options: .LiteralSearch, range: nil)
+        timeLabel.text = disabledText.replacingOccurrences(of: "second", with: "\(second)", options: .literal, range: nil)
     }
     
-    @objc private func updateCountdown() {
-        if --second <= 0 {
+    @objc fileprivate func updateCountdown() {
+        second = second - 1;
+        if second <= 0 {
             countdown = false
         } else {
             updateDisabled()

@@ -8,52 +8,52 @@
 
 import UIKit
 
-@IBDesignable public class CQPasswordTextField: CQCutLineTextField {
+@IBDesignable open class CQPasswordTextField: CQCutLineTextField {
     
     // 密码可见按钮
-    private let eyeButton = UIButton()
+    fileprivate let eyeButton = UIButton()
     
     // 密码可见按钮选中颜色
-    @IBInspectable dynamic public var openEyeImageColor:UIColor = UIColor.magentaColor() {
+    @IBInspectable dynamic open var openEyeImageColor:UIColor = UIColor.magenta {
         didSet {
             updateOpenEyeImage()
         }
     }
     // 闭眼图片
-    @IBInspectable dynamic public var closeEyeImage:UIImage? {
+    @IBInspectable dynamic open var closeEyeImage:UIImage? {
         didSet {
             updateCloseEyeImage()
         }
     }
     // 睁眼图片
-    @IBInspectable dynamic public var openEyeImage:UIImage? {
+    @IBInspectable dynamic open var openEyeImage:UIImage? {
         didSet {
             updateOpenEyeImage()
         }
     }
     
-    public override func drawRect(rect: CGRect) {
-        super.drawRect(rect)
+    open override func draw(_ rect: CGRect) {
+        super.draw(rect)
         
         eyeButton.frame     = rightView.bounds
         rightView.addSubview(eyeButton)
         
-        eyeButton.addTarget(self, action: Selector("eyeButtonClicked:"), forControlEvents: .TouchUpInside)
+        eyeButton.addTarget(self, action: #selector(CQPasswordTextField.eyeButtonClicked(_:)), for: .touchUpInside)
         
         // 文本框
-        textField.secureTextEntry = true
+        textField.isSecureTextEntry = true
     }
     
-    func eyeButtonClicked(sender: UIButton) {
+    func eyeButtonClicked(_ sender: UIButton) {
         
-        sender.selected = !sender.selected
+        sender.isSelected = !sender.isSelected
         
-        if sender.selected {
+        if sender.isSelected {
             
-            textField.secureTextEntry = false
+            textField.isSecureTextEntry = false
         } else {
             
-            textField.secureTextEntry = true
+            textField.isSecureTextEntry = true
         }
     }
     
@@ -62,8 +62,8 @@ import UIKit
         if let openEyeImage = openEyeImage {
             
             eyeButton.tintColor = openEyeImageColor
-            let tempImage       = scaleImage(openEyeImage, toScale: 0.5).imageWithRenderingMode(.AlwaysTemplate)
-            eyeButton.setImage(tempImage, forState: .Selected)
+            let tempImage       = scaleImage(openEyeImage, toScale: 0.5).withRenderingMode(.alwaysTemplate)
+            eyeButton.setImage(tempImage, for: .selected)
         }
     }
     
@@ -72,7 +72,7 @@ import UIKit
         if let closeEyeImage = closeEyeImage {
             
             let tempImage       = scaleImage(closeEyeImage, toScale: 0.5)
-            eyeButton.setImage(tempImage, forState: .Normal)
+            eyeButton.setImage(tempImage, for: UIControlState())
         }
     }
 

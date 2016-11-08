@@ -8,46 +8,46 @@
 
 import UIKit
 
-func scaleImage(image: UIImage, toScale scaleSize: CGFloat) -> UIImage {
+func scaleImage(_ image: UIImage, toScale scaleSize: CGFloat) -> UIImage {
     
-    UIGraphicsBeginImageContext(CGSizeMake(image.size.width * scaleSize, image.size.height * scaleSize))
-    image.drawInRect(CGRectMake(0, 0, image.size.width * scaleSize, image.size.height * scaleSize))
+    UIGraphicsBeginImageContext(CGSize(width: image.size.width * scaleSize, height: image.size.height * scaleSize))
+    image.draw(in: CGRect(x: 0, y: 0, width: image.size.width * scaleSize, height: image.size.height * scaleSize))
     let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
     UIGraphicsEndImageContext()
     
-    return scaledImage
+    return scaledImage!
 }
 
 let CQTextFieldFrameworkSrcName = "Frameworks/CQTextField.framework/CQTextField.bundle/"
 
-@IBDesignable public class CQTextField: UIView {
+@IBDesignable open class CQTextField: UIView {
     
-    @IBInspectable dynamic public var iconWidth: CGFloat = 16 {
+    @IBInspectable dynamic open var iconWidth: CGFloat = 16 {
         didSet {
             setNeedsDisplay()
         }
     }
-    @IBInspectable dynamic public var iconImage: UIImage? {
+    @IBInspectable dynamic open var iconImage: UIImage? {
         didSet {
-            iconLayer.contents = iconImage?.CGImage
+            iconLayer.contents = iconImage?.cgImage
         }
     }
-    @IBInspectable dynamic public var placeholder: String = "" {
+    @IBInspectable dynamic open var placeholder: String = "" {
         didSet {
             textField.placeholder = placeholder
         }
     }
     
     internal let iconLayer = CALayer()
-    public let textField = UITextField()
+    open let textField = UITextField()
     
     // 边界
-    @IBInspectable dynamic public var borderColor: UIColor = UIColor.grayColor() {
+    @IBInspectable dynamic open var borderColor: UIColor = UIColor.gray {
         didSet {
-            self.layer.borderColor = borderColor.CGColor
+            self.layer.borderColor = borderColor.cgColor
         }
     }
-    @IBInspectable dynamic public var focusBorderColor: UIColor = UIColor.magentaColor()
+    @IBInspectable dynamic open var focusBorderColor: UIColor = UIColor.magenta
     
     internal let borderWidth: CGFloat = 1
     internal let cornerRadius : CGFloat = 4
@@ -58,10 +58,10 @@ let CQTextFieldFrameworkSrcName = "Frameworks/CQTextField.framework/CQTextField.
     internal let textFieldMargin: CGFloat = 4
     internal let textFieldFont: CGFloat = 14
 
-    override public func drawRect(rect: CGRect) {
+    override open func draw(_ rect: CGRect) {
 
         // 边界
-        self.layer.borderColor  = borderColor.CGColor
+        self.layer.borderColor  = borderColor.cgColor
         self.layer.borderWidth  = borderWidth
         self.layer.cornerRadius = cornerRadius
         
@@ -72,13 +72,13 @@ let CQTextFieldFrameworkSrcName = "Frameworks/CQTextField.framework/CQTextField.
         let iconLayerSize   = CGSize(width: iconWidth, height: iconWidth)
         
         iconLayer.frame             = CGRect(origin: iconLayerOrigin, size: iconLayerSize)
-        iconLayer.contents          = iconImage?.CGImage
+        iconLayer.contents          = iconImage?.cgImage
         //iconLayer.backgroundColor   = UIColor.grayColor().CGColor
         
         self.layer.addSublayer(iconLayer)
         
         // 文本框
-        let textFieldOriginX    = CGRectGetMaxX(iconLayer.frame) + paddingIconAndText
+        let textFieldOriginX    = iconLayer.frame.maxX + paddingIconAndText
         let textFieldOrigin     = CGPoint(x:  textFieldOriginX, y: textFieldMargin)
         let textFieldSizeWidth  = rect.width - textFieldOrigin.x - iconMargin
         let textFieldSize       = CGSize(width: textFieldSizeWidth, height: textFieldHeight)
@@ -86,8 +86,8 @@ let CQTextFieldFrameworkSrcName = "Frameworks/CQTextField.framework/CQTextField.
         textField.frame             = CGRect(origin: textFieldOrigin, size: textFieldSize)
         textField.center.y          = rect.height/2
         textField.placeholder       = placeholder
-        textField.font = UIFont.systemFontOfSize(textFieldFont)
-        textField.clearButtonMode   = .WhileEditing
+        textField.font = UIFont.systemFont(ofSize: textFieldFont)
+        textField.clearButtonMode   = .whileEditing
         //textField.backgroundColor   = UIColor.magentaColor()
         
         self.addSubview(textField)
@@ -95,44 +95,44 @@ let CQTextFieldFrameworkSrcName = "Frameworks/CQTextField.framework/CQTextField.
     
     // MARK: - UITextField Observing
     
-    override public func willMoveToSuperview(newSuperview: UIView!) {
+    override open func willMove(toSuperview newSuperview: UIView!) {
         if newSuperview != nil {
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: "textFieldDidEndEditing", name:UITextFieldTextDidEndEditingNotification, object: self.textField)
+            NotificationCenter.default.addObserver(self, selector: #selector(CQTextField.textFieldDidEndEditing), name:NSNotification.Name.UITextFieldTextDidEndEditing, object: self.textField)
             
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: "textFieldDidBeginEditing", name:UITextFieldTextDidBeginEditingNotification, object: self.textField)
+            NotificationCenter.default.addObserver(self, selector: #selector(CQTextField.textFieldDidBeginEditing), name:NSNotification.Name.UITextFieldTextDidBeginEditing, object: self.textField)
         } else {
-            NSNotificationCenter.defaultCenter().removeObserver(self)
+            NotificationCenter.default.removeObserver(self)
         }
     }
     
     /**
      The textfield has started an editing session.
      */
-    public func textFieldDidBeginEditing() {
+    open func textFieldDidBeginEditing() {
         animateViewsForTextEntry()
     }
     
     /**
      The textfield has ended an editing session.
      */
-    public func textFieldDidEndEditing() {
+    open func textFieldDidEndEditing() {
         animateViewsForTextDisplay()
     }
     
     /**
      Creates all the animations that are used to leave the textfield in the "entering text" state.
      */
-    public func animateViewsForTextEntry() {
+    open func animateViewsForTextEntry() {
         
-        self.layer.borderColor  = focusBorderColor.CGColor
+        self.layer.borderColor  = focusBorderColor.cgColor
     }
     
     /**
      Creates all the animations that are used to leave the textfield in the "display input text" state.
      */
-    public func animateViewsForTextDisplay() {
+    open func animateViewsForTextDisplay() {
         
-        self.layer.borderColor  = borderColor.CGColor
+        self.layer.borderColor  = borderColor.cgColor
     }
 
 }

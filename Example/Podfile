@@ -1,12 +1,13 @@
+
+
 source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
-target 'CQTextField_Example', :exclusive => true do
+target 'CQTextField_Example'  do
   pod "CQTextField", :path => "../"
 end
 
-target 'CQTextField_Tests', :exclusive => true do
+target 'CQTextField_Tests' do
   pod "CQTextField", :path => "../"
-
   
 end
