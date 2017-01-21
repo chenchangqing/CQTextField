@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable class CQPasswordTextField: CQCutLineTextField {
+@IBDesignable public class CQPasswordTextField: CQCutLineTextField {
     
     // 密码可见按钮
     private let eyeButton = UIButton()
@@ -31,7 +31,7 @@ import UIKit
             updateOpenEyeImage()
         }
     }
-    override func drawRect(rect: CGRect) {
+    override public func drawRect(rect: CGRect) {
         
         eyeButton.frame     = rightView.bounds
         rightView.addSubview(eyeButton)
