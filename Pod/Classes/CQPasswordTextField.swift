@@ -32,6 +32,7 @@ import UIKit
         }
     }
     override public func drawRect(rect: CGRect) {
+        super.drawRect(rect)
         
         eyeButton.frame     = rightView.bounds
         rightView.addSubview(eyeButton)
