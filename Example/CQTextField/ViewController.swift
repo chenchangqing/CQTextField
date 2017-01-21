@@ -18,18 +18,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
         textField.textField.becomeFirstResponder()
         textField.textField.text = "13917470873"
     }
     
-    @IBAction func tapCountdownClick(_ sender: AnyObject) {
+    @IBAction func tapCountdownClick(sender: AnyObject) {
         countdownButton.maxSecond = 30
         countdownButton.countdown = true
     }

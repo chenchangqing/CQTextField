@@ -6,11 +6,11 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   CQTextField:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
   CQTextField: 8bb4a93d69667b5bf3ce6ac2eda31d372ce45ecb
 
 PODFILE CHECKSUM: 54aeaf471d10d935f8a19097acaf1d8dc8241faa
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.1

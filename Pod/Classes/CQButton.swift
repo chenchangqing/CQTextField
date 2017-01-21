@@ -8,44 +8,43 @@
 
 import UIKit
 
-@IBDesignable open class CQButton: UIButton {
+@IBDesignable public class CQButton: UIButton {
     
-    @IBInspectable dynamic open var borderWidth: CGFloat = 1 {
+    @IBInspectable dynamic var borderWidth: CGFloat = 1 {
         
         didSet {
             self.layer.borderWidth = borderWidth
         }
     }
-    @IBInspectable dynamic open var cornerRadius : CGFloat = 4 {
+    @IBInspectable dynamic var cornerRadius : CGFloat = 4 {
         
         didSet {
             self.layer.cornerRadius = cornerRadius
         }
     }
-    @IBInspectable dynamic open var borderColor: UIColor = UIColor.lightGray {
+    @IBInspectable dynamic var borderColor: UIColor = UIColor.lightGrayColor() {
         
         didSet {
-            self.layer.borderColor = borderColor.cgColor
+            self.layer.borderColor = borderColor.CGColor
         }
     }
     
-    @IBInspectable dynamic open var bgColor: UIColor = UIColor.lightGray {
+    @IBInspectable dynamic var bgColor: UIColor = UIColor.lightGrayColor() {
         
         didSet {
-            self.layer.backgroundColor = bgColor.cgColor
+            self.layer.backgroundColor = bgColor.CGColor
         }
     }
-
-    override open func draw(_ rect: CGRect) {
-        super.draw(rect)
+    override public func drawRect(rect: CGRect) {
+        super.drawRect(rect)
         
         self.layer.masksToBounds = true
         self.layer.cornerRadius = cornerRadius
-        self.layer.borderColor = borderColor.cgColor
+        self.layer.borderColor = borderColor.CGColor
         self.layer.borderWidth = borderWidth
-        self.layer.backgroundColor = bgColor.cgColor
-        self.setTitleColor(UIColor.white, for: UIControlState())
-        self.setTitleColor(UIColor.white, for: .highlighted)
+        self.layer.backgroundColor = bgColor.CGColor
+        self.setTitleColor(UIColor.whiteColor(), forState: UIControlState())
+        self.setTitleColor(UIColor.whiteColor(), forState: .Highlighted)
     }
 
 }
