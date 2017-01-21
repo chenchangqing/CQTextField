@@ -10,26 +10,26 @@ import UIKit
 
 @IBDesignable public class CQButton: UIButton {
     
-    @IBInspectable dynamic var borderWidth: CGFloat = 1 {
+    @IBInspectable dynamic public var borderWidth: CGFloat = 1 {
         
         didSet {
             self.layer.borderWidth = borderWidth
         }
     }
-    @IBInspectable dynamic var cornerRadius : CGFloat = 4 {
+    @IBInspectable dynamic public var cornerRadius : CGFloat = 4 {
         
         didSet {
             self.layer.cornerRadius = cornerRadius
         }
     }
-    @IBInspectable dynamic var borderColor: UIColor = UIColor.lightGrayColor() {
+    @IBInspectable dynamic public var borderColor: UIColor = UIColor.lightGrayColor() {
         
         didSet {
             self.layer.borderColor = borderColor.CGColor
         }
     }
     
-    @IBInspectable dynamic var bgColor: UIColor = UIColor.lightGrayColor() {
+    @IBInspectable dynamic public var bgColor: UIColor = UIColor.lightGrayColor() {
         
         didSet {
             self.layer.backgroundColor = bgColor.CGColor
