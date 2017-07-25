@@ -1,18 +1,18 @@
-////
-////  CQValidCodeTextField.swift
-////  Pods
-////
-////  Created by green on 15/12/18.
-////
-////
 //
-//import UIKit
+//  CQValidCodeTextField.swift
+//  Pods
 //
-//@IBDesignable public class CQValidCodeTextField: CQCutLineTextField {
+//  Created by green on 15/12/18.
 //
-//    override public func drawRect(rect: CGRect) {
-//        super.drawRect(rect)
-//        
-//    }
 //
-//}
+
+import UIKit
+
+@IBDesignable public class CQValidCodeTextField: CQCutLineTextField {
+
+    override public func draw(_ rect: CGRect) {
+        super.draw(rect)
+        
+    }
+
+}
