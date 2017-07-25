@@ -22,29 +22,29 @@ import UIKit
             self.layer.cornerRadius = cornerRadius
         }
     }
-    @IBInspectable dynamic public var borderColor: UIColor = UIColor.lightGrayColor() {
+    @IBInspectable dynamic public var borderColor: UIColor = UIColor.lightGray {
         
         didSet {
-            self.layer.borderColor = borderColor.CGColor
+            self.layer.borderColor = borderColor.cgColor
         }
     }
     
-    @IBInspectable dynamic public var bgColor: UIColor = UIColor.lightGrayColor() {
+    @IBInspectable dynamic public var bgColor: UIColor = UIColor.lightGray {
         
         didSet {
-            self.layer.backgroundColor = bgColor.CGColor
+            self.layer.backgroundColor = bgColor.cgColor
         }
     }
-    override public func drawRect(rect: CGRect) {
-        super.drawRect(rect)
+    override public func draw(_ rect: CGRect) {
+        super.draw(rect)
         
         self.layer.masksToBounds = true
         self.layer.cornerRadius = cornerRadius
-        self.layer.borderColor = borderColor.CGColor
+        self.layer.borderColor = borderColor.cgColor
         self.layer.borderWidth = borderWidth
-        self.layer.backgroundColor = bgColor.CGColor
-        self.setTitleColor(UIColor.whiteColor(), forState: UIControlState())
-        self.setTitleColor(UIColor.whiteColor(), forState: .Highlighted)
+        self.layer.backgroundColor = bgColor.cgColor
+        self.setTitleColor(UIColor.white, for: UIControlState())
+        self.setTitleColor(UIColor.white, for: .highlighted)
     }
 
 }

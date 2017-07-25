@@ -215,6 +215,7 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = GVY2W5C59W;
 						LastSwiftMigration = 0810;
 					};
 					607FACE41AFB9204008FA782 = {
@@ -490,6 +491,7 @@
 			baseConfigurationReference = E0D30D226349131EDC886C60 /* Pods-CQTextField_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = GVY2W5C59W;
 				INFOPLIST_FILE = CQTextField/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -503,6 +505,7 @@
 			baseConfigurationReference = 8102877F14D5F0472148CDF5 /* Pods-CQTextField_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = GVY2W5C59W;
 				INFOPLIST_FILE = CQTextField/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;

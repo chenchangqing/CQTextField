@@ -22,7 +22,7 @@ public class SwiftCountdownButton: UIButton {
     }
     
     private var second = 0
-    private var timer: NSTimer?
+    private var timer: Timer?
     
     private var timeLabel: UILabel!
     private var normalText: String!
@@ -46,14 +46,14 @@ public class SwiftCountdownButton: UIButton {
     
     private func setupLabel() {
         
-        normalText = titleForState(UIControlState())!
-        disabledText = titleForState(.Disabled)!
-        normalTextColor = titleColorForState(UIControlState())!
-        disabledTextColor = titleColorForState(.Disabled)!
-        setTitle("", forState: UIControlState())
-        setTitle("", forState: .Disabled)
+        normalText = title(for: UIControlState())!
+        disabledText = title(for: .disabled)!
+        normalTextColor = titleColor(for: UIControlState())!
+        disabledTextColor = titleColor(for: .disabled)!
+        setTitle("", for: UIControlState())
+        setTitle("", for: .disabled)
         timeLabel = UILabel(frame: bounds)
-        timeLabel.textAlignment = .Center
+        timeLabel.textAlignment = .center
         timeLabel.font = titleLabel?.font
         timeLabel.textColor = normalTextColor
         timeLabel.text = normalText
@@ -70,7 +70,7 @@ public class SwiftCountdownButton: UIButton {
             timer!.invalidate()
             timer = nil
         }
-        timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(SwiftCountdownButton.updateCountdown), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(SwiftCountdownButton.updateCountdown), userInfo: nil, repeats: true)
     }
     
     private func stopCountdown() {
@@ -80,16 +80,16 @@ public class SwiftCountdownButton: UIButton {
     }
     
     private func updateNormal() {
-        enabled = true
+        isEnabled = true
         timeLabel.textColor = normalTextColor
         timeLabel.text = normalText
     }
     
     private func updateDisabled() {
-        enabled = false
+        isEnabled = false
         timeLabel.textColor = disabledTextColor
         
-        timeLabel.text = disabledText.stringByReplacingOccurrencesOfString("second", withString: "\(second)", options: .LiteralSearch, range: nil)
+        timeLabel.text = disabledText.replacingOccurrences(of: "second", with: "\(second)", options: String.CompareOptions.literal, range: nil)
     }
     
     @objc private func updateCountdown() {
