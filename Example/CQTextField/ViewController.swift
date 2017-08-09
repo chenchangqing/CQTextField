@@ -7,28 +7,28 @@
 //
 
 import UIKit
-//import CQTextField
+import CQTextField
 
 class ViewController: UIViewController {
     
-//    @IBOutlet weak var countdownButton: SwiftCountdownButton!
-//    @IBOutlet weak var textField: CQTextField!
-//    
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//    }
-//    
-//    override func viewDidAppear(animated: Bool) {
-//        super.viewDidAppear(animated)
-//        
-//        textField.textField.becomeFirstResponder()
-//        textField.textField.text = "13917470873"
-//    }
-//    
-//    @IBAction func tapCountdownClick(sender: AnyObject) {
-//        countdownButton.maxSecond = 30
-//        countdownButton.countdown = true
-//    }
+    @IBOutlet weak var countdownButton: SwiftCountdownButton!
+    @IBOutlet weak var textField: CQTextField!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        textField.textField.becomeFirstResponder()
+        textField.textField.text = "13917470873"
+    }
+    
+    @IBAction func tapCountdownClick(sender: AnyObject) {
+        countdownButton.maxSecond = 30
+        countdownButton.countdown = true
+    }
 
 }
 
